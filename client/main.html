@@ -1,0 +1,27 @@
+<head>
+  <title>hello-world</title>
+</head>
+
+<body>
+  <h1>Welcome to Meteor !</h1>
+  {{> todosList}}
+</body>
+
+<template name="todosList">
+  <h3>Todos</h3>
+
+  <form id="todo-form">
+    <input type="text" name="label">
+  </form>
+  <button id="reverse-sort">Sort</button>
+  <ul>
+    {{#each todos}}
+    {{> todo}}
+    {{/each}}
+  </ul>
+</template>
+
+<template name="todo">
+  <li class="{{#if done}}done{{/if}}"><input type="checkbox" checked="{{#if done}}checked{{/if}}">{{label}}<button
+      class="delete">X</button>{{createdAt}}</li>
+</template>
